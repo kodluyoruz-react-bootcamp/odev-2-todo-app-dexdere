@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import TodoList from './components/TodoList';
+import Filters from './components/Filter';
+import Form from './components/Form';
+import Footer from './components/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [inputText, setInputText] = useState('');
+	const [todos, setTodos] = useState([]);
+	const [status, setStatus] = useState('all');
+	const [filter, setFilter] = useState([]);
+
+	return (
+		<>
+			<section className="todoapp">
+				<Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText} />
+				<TodoList todos={todos} setTodos={setTodos} filter={filter} />
+				<Filters
+					todos={todos}
+					setTodos={setTodos}
+					completed={todos.completed}
+					status={status}
+					setStatus={setStatus}
+					setFilter={setFilter}
+				/>
+			</section>
+			<Footer />
+		</>
+	);
 }
 
 export default App;
