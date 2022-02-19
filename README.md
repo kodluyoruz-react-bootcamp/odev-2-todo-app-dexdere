@@ -1,5 +1,5 @@
 # Netlify Link
-https://hardcore-agnesi-8a1fbf.netlify.app/
+https://todoapp-kodluyoruz.netlify.app/
 
 # Getting Started with Create React App
 
